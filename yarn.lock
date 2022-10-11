@@ -3688,10 +3688,10 @@
   dependencies:
     "is-what" "^3.12.0"
 
-"copy-to-clipboard@^3.2.0":
-  "integrity" "sha1-EVqhqZmP+rYZb5MHatbaO5E2Yq4="
-  "resolved" "https://registry.npm.taobao.org/copy-to-clipboard/download/copy-to-clipboard-3.3.1.tgz"
-  "version" "3.3.1"
+"copy-to-clipboard@^3.2.0", "copy-to-clipboard@^3.3.2":
+  "integrity" "sha512-Vme1Z6RUDzrb6xAI7EZlVZ5uvOk2F//GaxKUxajDqm9LhOVM1inxNAD2vy+UZDYsd0uyA9s7b3/FVZPSxqrCfg=="
+  "resolved" "https://registry.npmmirror.com/copy-to-clipboard/-/copy-to-clipboard-3.3.2.tgz"
+  "version" "3.3.2"
   dependencies:
     "toggle-selection" "^1.0.6"
 

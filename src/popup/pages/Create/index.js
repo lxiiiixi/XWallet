@@ -36,7 +36,9 @@ export default function Create() {
                             wallet,
                         })
                         console.log("新钱包的私钥:", wallet.privateKey, "用户密码作为key加密后:", _crypted);
-                        navigate('/home')
+                        //新钱包的私钥: 0x1c6bc4a5fb19c8f54c514f7b80739b47a2f0b872f614b1975377ff7210639cce 
+                        //用户密码作为key加密后: U2FsdGVkX1/KRcSeCbfWqKcVif0Am6wSzYHr2U8vKcuGVClrRSX2gqnkUA647RNg/co7yh2sIPp36b1Ss+uS2pQHBKZa3r7LRIvpn+17s9n4LNHBpOjo3mfrL+CZY0mI
+                        navigate('/detail')
                     } catch (err) {
                         console.log("写入浏览器存储出错", 'error');
                     }

@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 import { ethers } from "ethers";
+import { safeAccess } from "@/popup/utils"
 
 const AccountContext = createContext();
 
@@ -25,8 +26,10 @@ export default function AccountProvider({ children }) {
     const [state, setState] = useState(stateInit)
 
     const update = payload => {
+        console.log(state, payload);
         setState({ ...state, ...payload })
     }
+
 
     return (
         <AccountContext.Provider value={{ state, update }}>

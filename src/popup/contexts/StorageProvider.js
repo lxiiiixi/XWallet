@@ -19,6 +19,7 @@ export function useStorage() {
 export default function StorageProvider({ children }) {
     const [state, setState] = useState({})
 
+
     function updateByAddress(address, value) {
         reactLocalStorage.setObject(appKey, {
             ...state,
@@ -36,8 +37,29 @@ export default function StorageProvider({ children }) {
         updateByAddress(address, _data)
     }
 
+
+    //返回默认账号的存储，默认账号就是第一个账号（在本钱包为单账号情况下就是唯一的账号）
+    function useDefaultAccount() {
+        const defaultData = reactLocalStorage.getObject(appKey)
+        console.log(defaultData);
+
+        let keys = Object.keys(defaultData)
+        const obj = {
+            defaultCrypt: defaultData[keys[0]],
+            defaultAddress: keys[0]
+        }
+        return obj
+    }
+
+    //获取某账号加密后的私钥，登录时使用
+    function useAccountCrypt(address) {
+        return safeAccess(state, [address, 'crypt'])
+    }
+
+
+
     return (
-        <StorageContext.Provider value={{ state, updateByAddress, updateCrypt }}>
+        <StorageContext.Provider value={{ state, updateByAddress, updateCrypt, useDefaultAccount, useAccountCrypt }}>
             {children}
         </StorageContext.Provider>
     )

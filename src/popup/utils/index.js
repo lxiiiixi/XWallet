@@ -24,3 +24,9 @@ export function safeAccess(object, path) {
                 : null), object)
         : null
 }
+
+
+// 地址展示为: (前4位+...+后4位)
+export function addressDisplay(address, digits = 4) {
+    return `${address.substring(0, digits + 2)}...${address.substring(address.length - digits)}`
+}

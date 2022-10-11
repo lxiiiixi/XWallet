@@ -14,7 +14,7 @@ export default function Import() {
         privateKey: "",
         password: "",
         passwordAgain: "",
-        submitType: ""
+        submitType: "privateKey"
     }
     const [state, setState] = useState(INITSTATE)
     const { state: accountState, update: updateAccount } = useAccount()
@@ -34,6 +34,7 @@ export default function Import() {
             if (state.submitType === "privateKey") {
                 try {
                     wallet = new ethers.Wallet(state.privateKey);
+                    console.log(wallet);
                 } catch (err) {
                     console.log(err);
                 }
@@ -54,7 +55,7 @@ export default function Import() {
                         wallet,
                     })
                     console.log("新钱包的私钥:", wallet.privateKey, "用户密码作为key加密后:", _crypted);
-                    navigate('/home')
+                    navigate('/detail')
                 } catch (err) {
                     console.log("写入浏览器存储出错", 'error');
                 }
